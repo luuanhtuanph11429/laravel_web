@@ -50,9 +50,44 @@ Route::get('/login',function(){
 
 //route kem query string va params
 // voi tham so truyen vao la url thi function se nhan 1 tham so tuong ung
-Route::get('/users/{usreId}/{username?}',function(
-    Request $request,
-    $userId,
-    $username='profile' ){
-    dd($userId,$username,$request->all());
+// Route::get('/users/{usreId}/{username?}',function(
+//     Request $request,
+//     $userId,
+//     $username='profile' ){
+//     dd($userId,$username,$request->all());
+// });
+
+
+Route::get('user/{id}', function (Request $request, $id){
+    $dataUrl = $request->all();
+    $users = [
+        [
+            'name'=>'luu anh tuan',
+            'height'=>170,
+            'weight'=>100,
+            'age'=>20,
+            'gender'=>'nam',
+            'avatar'=>'https://i.pinimg.com/564x/94/9b/8d/949b8d8d9229693ba9d53b054b738e2a.jpg'
+        ],
+        [
+            'name'=>'anh tuan luu',
+            'height'=>111,
+            'weight'=>80,
+            'age'=>21,
+            'gender'=>'nu',
+            'avatar'=>'https://i.pinimg.com/564x/94/9b/8d/949b8d8d9229693ba9d53b054b738e2a.jpg'
+        ],
+        [
+            'name'=>'anh tuan luu 312312',
+            'height'=>11,
+            'weight'=>820,
+            'age'=>21,
+            'gender'=>'nu',
+            'avatar'=>'https://i.pinimg.com/564x/94/9b/8d/949b8d8d9229693ba9d53b054b738e2a.jpg'
+        ],
+    ];
+    return view('user',compact('users','dataUrl' , 'id'));
 });
+
+
+
